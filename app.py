@@ -1,9 +1,10 @@
 from flask import Flask, jsonify, request
 from werkzeug.utils import secure_filename
+import tensorflow as tf
 import os
 from keras.models import load_model
 import numpy as np
-import tensorflow as tf
+
 
 app = Flask(__name__)
 
