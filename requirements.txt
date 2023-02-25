@@ -1,4 +1,5 @@
 Flask==2.1.2
+Pillow==9.1.1
 numpy==1.23.0
 tensorflow-cpu
 keras
