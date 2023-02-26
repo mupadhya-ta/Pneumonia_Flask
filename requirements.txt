@@ -3,3 +3,4 @@ numpy==1.23.0
 tensorflow-cpu
 Keras
 gunicorn==20.1.0
+werkzeug
