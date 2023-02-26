@@ -1,6 +1,6 @@
 from flask import Flask, jsonify, request
 from werkzeug.utils import secure_filename
-import tensorflow as tf
+import tensorflow.keras as tf
 import os
 from keras.models import load_model
 import numpy as np
@@ -9,7 +9,7 @@ import numpy as np
 app = Flask(__name__)
 
 # Load the trained model
-model = tf.keras.models.load_model("models/pneumonia.h5")
+model = tf.models.load_model("models/pneumonia.h5")
 
 @app.route('/', methods=['GET'])
 def home():
@@ -25,8 +25,8 @@ def predict():
     file.save(file_path)
 
     # Load the image and preprocess it
-    img = tf.keras.utils.load_img(file_path, target_size=(128,128))
-    img = tf.keras.utils.img_to_array(img)
+    img = tf.utils.load_img(file_path, target_size=(128,128))
+    img = tf.utils.img_to_array(img)
     img = np.expand_dims(img, axis = 0)
 
     # Make a prediction with the model
