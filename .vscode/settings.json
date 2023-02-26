@@ -1,0 +1,4 @@
+{
+	"appService.defaultWebAppToDeploy": "undefined/subscriptions/e8b90a8d-ca1c-4ba0-8a8f-6c88002786bd/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/pneumoiawebapp2",
+	"appService.deploySubpath": "."
+}
