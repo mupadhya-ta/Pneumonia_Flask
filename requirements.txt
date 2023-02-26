@@ -1,6 +1,5 @@
 Flask==2.1.2
-Pillow==9.1.1
-numpy==1.23.0
-tensorflow
-keras
+numpy==1.19.5
+tensorflow-gpu
+Keras
 gunicorn==20.1.0
