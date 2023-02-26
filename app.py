@@ -2,7 +2,6 @@ from flask import Flask, jsonify, request
 from werkzeug.utils import secure_filename
 import tensorflow.keras as tf
 import os
-from keras.models import load_model
 import numpy as np
 
 
