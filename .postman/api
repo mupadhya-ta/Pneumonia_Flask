@@ -11,4 +11,4 @@ rootDirectory = postman/collections
 [relations.apiDefinition]
 rootDirectory = postman/schemas
 
-[relations.apiDefinition.metaData]
+[relations.apiDefinition.metaData] 
