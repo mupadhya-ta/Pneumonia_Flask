@@ -1,7 +1,7 @@
-runtime: python39
+runtime: python27
 api_version: 1
 threadsafe: true
-entrypoint: gunicorn -b main:app
+entrypoint: gunicorn -b :$PORT main:app
 
 handlers:
 - url: /static
@@ -12,3 +12,9 @@ handlers:
 libraries:
   - name: ssl
     version: latest
+skip_files:
+  - ^(.*/)?\..*$
+  - venv/
+  - tensorflow/python/_pywrap_tensorflow_internal.lib
+  
+

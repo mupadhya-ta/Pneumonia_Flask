@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from werkzeug.utils import secure_filename
 from keras.models import load_model
-import tensorflow as tf
+import tflite as tf
 import os
 import numpy as np
 
