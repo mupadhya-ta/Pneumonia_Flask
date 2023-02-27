@@ -6,4 +6,9 @@
 /notebooks
 /test_images
 /uploads
+/venv
+/app.yaml
+/appengine_config.py
+/.vscode
+/.postman
 
