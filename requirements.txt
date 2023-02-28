@@ -1,9 +1,8 @@
 Flask==2.1.2
-numpy==1.23.0
 gunicorn==20.1.0
-werkzeug
-Keras
+keras==2.11.0
+numpy==1.23.0
+Pillow==9.4.0
 tensorflow
-Pillow
-
-
+tflite==2.10.0
+Werkzeug==2.2.3

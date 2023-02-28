@@ -13,8 +13,6 @@ libraries:
   - name: ssl
     version: latest
 skip_files:
-  - ^(.*/)?\..*$
-  - venv/
-  - tensorflow/python/_pywrap_tensorflow_internal.lib
+  
   
 
