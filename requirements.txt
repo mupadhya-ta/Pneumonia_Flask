@@ -1,5 +1,5 @@
-Flask==2.1.2
-gunicorn
+flask
+pillow
+keras
 numpy
-tensorflow
-Werkzeug
+
