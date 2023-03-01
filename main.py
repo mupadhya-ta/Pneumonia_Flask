@@ -1,26 +1,20 @@
+import os
+
+import numpy as np
+from PIL import Image
 from flask import Flask, jsonify, request
 from werkzeug.utils import secure_filename
-import os
 from keras.models import load_model
-import numpy as np
-import tensorflow as tf
 
 app = Flask(__name__)
 
-# Load the trained model
+# Load the model
+model = load_model('models/pneumonia.h5')
 
-
-model = load_model("models/pneumonia.h5")
-
-@app.route('/', methods=['GET'])
-def home():
-
-    return "Hello From Flask"
 @app.route('/predict', methods=['POST'])
 def predict():
     # Get the uploaded file
     file = request.files['file']
-   
 
     # Save the file to disk
     filename = secure_filename(file.filename)
@@ -28,14 +22,16 @@ def predict():
     file.save(file_path)
 
     # Load the image and preprocess it
-    img = tf.keras.utils.load_img(file_path, target_size=(128,128))
-    img = tf.keras.utils.img_to_array(img)
-    img = np.expand_dims(img, axis = 0)
+    img = Image.open(file_path)
+    img = img.convert('RGB')  # Convert image to RGB format
+    img = img.resize((128, 128))
+    img_array = np.array(img)
+    img_array = img_array.astype('float32') / 255.0
 
-    # Make a prediction with the model
-    prediction = model.predict(img)
-    predicted_label = np.argmax(prediction)
-    class_names={0: 'NORMAL', 1: 'PNEUMONIA'}
+    # Make a prediction
+    predicted_prob = model.predict(np.expand_dims(img_array, axis=0))[0]
+    predicted_label = np.argmax(predicted_prob)
+    class_names = {0: 'NORMAL', 1: 'PNEUMONIA'}
     predicted_class = class_names[predicted_label]
 
     # Return the prediction result as JSON
@@ -46,3 +42,4 @@ def predict():
 if __name__ == '__main__':
     app.run(debug=True)
 
+    
