@@ -1,7 +1,7 @@
 flask
 pillow
 tensorflow==2.3.0
-numpy==1.18.5
+numpy
 gunicorn
-Jinja2==2.11.2
+
 
