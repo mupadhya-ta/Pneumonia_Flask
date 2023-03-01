@@ -1,6 +1,6 @@
 flask
 pillow
-keras
+tensorflow
 numpy
 gunicorn
 
