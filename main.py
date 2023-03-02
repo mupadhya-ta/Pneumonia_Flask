@@ -5,8 +5,10 @@ from PIL import Image
 from flask import Flask, jsonify, request
 from werkzeug.utils import secure_filename
 from keras.models import load_model
+from flask_cors import CORS
 
 app = Flask(__name__)
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Load the model
 model = load_model('models/pneumonia.h5')
@@ -42,4 +44,3 @@ def predict():
 if __name__ == '__main__':
     app.run(debug=True)
 
-    
